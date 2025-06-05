@@ -2,25 +2,28 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Calendar } from 'lucide-react';
+import dashainimg from '../../../public/images/Dashain-Festival.webp';
+import tiharimg from '../../../public/images/tihar-social.webp';
+import holiimg from '../../../public/images/holi-in-nepal.webp';
 
 const festivals = [
   {
     name: "Dashain",
     description: "Nepal's biggest festival celebrating the victory of good over evil with traditional rituals and family gatherings.",
     date: "September-October",
-    image: "./images/Dashain-Festival.webp"
+    image: dashainimg
   },
   {
     name: "Tihar",
     description: "The festival of lights honoring Laxmi, the goddess of wealth, with beautiful light displays and rangoli art.",
     date: "October-November",
-    image: "./images/tihar-social.webp"
+    image: tiharimg
   },
   {
     name: "Holi",
     description: "The colorful spring festival where people celebrate with vibrant colors, music, and dance.",
     date: "March",
-    image: "./images/holi-in-nepal.webp"
+    image: holiimg
   }
 ];
 

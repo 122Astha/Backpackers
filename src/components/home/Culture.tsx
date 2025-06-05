@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Utensils, Music, Landmark } from 'lucide-react';
+import foodimg from '../../../public/images/Nepali-Food.webp';
+import danceimg from '../../../public/images/Kumari-Dance.jpg';
+import bhaktaputimag from '../../../public/images/Nepal-Bhaktapur.jpg';
 
 const Culture = () => {
   const ref = useRef(null);
@@ -40,7 +43,7 @@ const Culture = () => {
               Savor authentic Nepali dishes like Dal Bhat, momos, and traditional street food. Experience the unique blend of flavors influenced by diverse ethnic communities.
             </p>
             <img
-              src="./images/Nepali-Food.webp"
+              src={foodimg}
               alt="Nepali Cuisine"
               className="w-full h-48 object-cover rounded-lg"
             />
@@ -61,7 +64,7 @@ const Culture = () => {
               Witness traditional performances featuring ancient instruments and cultural dances that tell stories of Nepal's rich heritage and mythology.
             </p>
             <img
-              src="./images/Kumari-Dance.jpg"
+              src={danceimg}
               alt="Traditional Dance"
               className="w-full h-48 object-cover rounded-lg"
             />
@@ -82,7 +85,7 @@ const Culture = () => {
               Explore UNESCO World Heritage sites, ancient temples, and traditional Newari architecture that showcase Nepal's architectural mastery.
             </p>
             <img
-              src="./images/Nepal-Bhaktapur.jpg"
+              src={bhaktaputimag}
               alt="Temple Architecture"
               className="w-full h-48 object-cover rounded-lg"
             />
