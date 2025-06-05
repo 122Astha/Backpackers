@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import naturePic from '../../../public/images/naturepic.jpg';
+import culturePic from '../../../public/images/culture.jpg';
 
 const AboutNepal = () => {
   const ref = useRef(null);
@@ -48,7 +50,7 @@ const AboutNepal = () => {
             className="rounded-lg overflow-hidden shadow-lg"
           >
             <img
-              src="./images/naturepic.jpg"
+              src={naturePic}
               alt="Himalayan Mountains"
               className="w-full h-auto object-cover"
             />
@@ -62,7 +64,7 @@ const AboutNepal = () => {
             className="rounded-lg overflow-hidden shadow-lg md:order-3"
           >
             <img
-              src="./images/culture.jpg"
+              src={culturePic}
               alt="Nepalese Temple"
               className="w-full h-auto object-cover"
             />
