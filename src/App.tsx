@@ -10,12 +10,12 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Backpackers">
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
-          <Routes>
+          <Routes >
             <Route path="/" element={<Home />} />
             <Route path="/treks" element={<TreksList />} />
             <Route path="/treks/:id" element={<TrekDetail />} />

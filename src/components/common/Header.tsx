@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const showTransparent = isHome && !scrolled;
+
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      className={`fixed w-full z-50 transition-all duration-300 ${showTransparent ? 'bg-transparent py-4' : 'bg-white shadow-md py-2'
         }`}
     >
       <div className="container mx-auto px-4">
@@ -30,14 +30,14 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <MapPin
               size={32}
-              className={`transition-colors duration-300 ${scrolled ? 'text-primary' : 'text-white'
+              className={`transition-colors duration-300 ${showTransparent ? 'text-white' : 'text-primary'
                 }`}
             />
             <span
-              className={`ml-2 text-2xl font-bold transition-colors duration-300 ${scrolled ? 'text-primary' : 'text-white'
+              className={`ml-2 text-2xl font-bold transition-colors duration-300 ${showTransparent ? 'text-white' : 'text-primary'
                 }`}
             >
-              Bagpacker
+              Backpacker
             </span>
           </Link>
 
@@ -47,12 +47,16 @@ const Header = () => {
               <NavLink
                 key={item}
                 to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                className={({ isActive }) => `
-                  text-lg font-medium transition-colors duration-300
-                  ${scrolled
-                    ? (isActive ? 'text-primary' : 'text-neutral-700 hover:text-primary')
-                    : (isActive ? 'text-white font-semibold' : 'text-white hover:text-neutral-200')}
-                `}
+                className={({ isActive }) =>
+                  `text-lg font-medium transition-colors duration-300 ${showTransparent
+                    ? isActive
+                      ? 'text-white font-semibold'
+                      : 'text-white hover:text-neutral-200'
+                    : isActive
+                      ? 'text-primary'
+                      : 'text-neutral-700 hover:text-primary'
+                  }`
+                }
               >
                 {item}
               </NavLink>
@@ -68,14 +72,12 @@ const Header = () => {
             {isOpen ? (
               <X
                 size={28}
-                className={`transition-colors duration-300 ${scrolled ? 'text-neutral-800' : 'text-white'
-                  }`}
+                className={`${showTransparent ? 'text-white' : 'text-neutral-800'}`}
               />
             ) : (
               <Menu
                 size={28}
-                className={`transition-colors duration-300 ${scrolled ? 'text-neutral-800' : 'text-white'
-                  }`}
+                className={`${showTransparent ? 'text-white' : 'text-neutral-800'}`}
               />
             )}
           </button>
@@ -97,10 +99,12 @@ const Header = () => {
                 <NavLink
                   key={item}
                   to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                  className={({ isActive }) => `
-                    text-lg font-medium p-2 rounded
-                    ${isActive ? 'bg-primary-light/10 text-primary' : 'text-neutral-700 hover:bg-neutral-100'}
-                  `}
+                  className={({ isActive }) =>
+                    `text-lg font-medium p-2 rounded ${isActive
+                      ? 'bg-primary-light/10 text-primary'
+                      : 'text-neutral-700 hover:bg-neutral-100'
+                    }`
+                  }
                   onClick={() => setIsOpen(false)}
                 >
                   {item}

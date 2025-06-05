@@ -10,7 +10,7 @@ const testimonials = [
     id: 1,
     name: 'Sarah Johnson',
     country: 'United States',
-    image: '/images/EverestBaseCamp.jpg',
+    image: './images/EverestBaseCamp.jpg',
     trek: 'Everest Base Camp',
     rating: 5,
     text: 'The Everest Base Camp trek was the adventure of a lifetime. Our guide was incredibly knowledgeable and made sure we were safe throughout the journey. The views were absolutely breathtaking!'
@@ -19,7 +19,7 @@ const testimonials = [
     id: 2,
     name: 'Marcus Thompson',
     country: 'Nepal',
-    image: '/images/Annapurna_base_camp.jpg',
+    image: './images/Annapurna_base_camp.jpg',
     trek: 'Annapurna Circuit',
     rating: 5,
     text: 'The Annapurna Circuit exceeded all my expectations. The diverse landscapes and local villages we encountered were amazing. Our guide shared fascinating cultural insights that really enhanced the experience.'
@@ -28,16 +28,16 @@ const testimonials = [
     id: 3,
     name: 'Elena Petrov',
     country: 'Nepal',
-    image: '/images/Gokyo_Nepal.jpg',
+    image: './images/Gokyo_Nepal.jpg',
     trek: 'Gokyo Lakes Trek',
     rating: 5,
-    text: 'The Gokyo Lakes trek offered stunning views with fewer crowds than EBC. The turquoise lakes against the mountain backdrop were simply magical. Bagpacker provided excellent service from start to finish.'
+    text: 'The Gokyo Lakes trek offered stunning views with fewer crowds than EBC. The turquoise lakes against the mountain backdrop were simply magical. Backpacker provided excellent service from start to finish.'
   },
   {
     id: 4,
     name: 'Takashi Yamamoto',
     country: 'Japan',
-    image: '/images/mustang.jpg',
+    image: './images/mustang.jpg',
     trek: 'Upper Mustang',
     rating: 5,
     text: 'Upper Mustang felt like stepping back in time. The ancient Buddhist culture and dramatic landscapes were fascinating. Our guide was excellent and made the entire journey comfortable and educational.'

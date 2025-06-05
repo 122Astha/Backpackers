@@ -53,8 +53,16 @@ const Contact = () => {
   return (
     <div ref={ref} className="min-h-screen bg-neutral-50 pt-24">
       {/* Hero Section */}
-      <div className="bg-primary text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <div
+        className="relative w-full bg-cover bg-center bg-no-repeat py-24 md:py-32"
+        style={{
+          backgroundImage:
+            "url('./images/trekwalk.jpg')", // update this path to match your image
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <div className="relative container mx-auto px-4 text-white text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -63,17 +71,19 @@ const Contact = () => {
           >
             Contact Us
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/90 max-w-3xl"
+            className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto"
           >
             Have questions about our trekking routes or want to book a custom adventure?
             Get in touch with our team of experienced trekking experts.
           </motion.p>
         </div>
       </div>
+
 
       {/* Contact Section */}
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -123,10 +133,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-lg">Email Address</h3>
                     <p className="text-neutral-600">
-                      info@bagpacker.com
+                      info@backpacker.com
                     </p>
                     <p className="text-neutral-600">
-                      bookings@bagpacker.com
+                      bookings@backpacker.com
                     </p>
                   </div>
                 </div>
@@ -157,7 +167,7 @@ const Contact = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
-                  title="Bagpacker Office Location"
+                  title="Backpacker Office Location"
                 ></iframe>
               </div>
             </motion.div>

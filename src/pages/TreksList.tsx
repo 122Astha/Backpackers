@@ -20,36 +20,36 @@ const TreksList = () => {
     // Filter treks based on search term and filters
     const filtered = treks.filter((trek) => {
       // Search term filter
-      const matchesSearch = 
-        searchTerm === '' || 
+      const matchesSearch =
+        searchTerm === '' ||
         trek.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         trek.region.toLowerCase().includes(searchTerm.toLowerCase()) ||
         trek.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
+
       // Region filter
-      const matchesRegion = 
-        filters.region === 'all' || 
+      const matchesRegion =
+        filters.region === 'all' ||
         trek.region.toLowerCase() === filters.region.toLowerCase();
-      
+
       // Difficulty filter
-      const matchesDifficulty = 
-        filters.difficulty === 'all' || 
+      const matchesDifficulty =
+        filters.difficulty === 'all' ||
         trek.difficulty.toLowerCase() === filters.difficulty.toLowerCase();
-      
+
       // Duration filter
-      const matchesDuration = filters.duration === 'all' || 
+      const matchesDuration = filters.duration === 'all' ||
         (filters.duration === 'short' && trek.duration <= 7) ||
         (filters.duration === 'medium' && trek.duration > 7 && trek.duration <= 14) ||
         (filters.duration === 'long' && trek.duration > 14);
-      
+
       // Season filter (simplified for demo)
-      const matchesSeason = 
-        filters.season === 'all' || 
+      const matchesSeason =
+        filters.season === 'all' ||
         trek.bestSeason.toLowerCase().includes(filters.season.toLowerCase());
-      
+
       return matchesSearch && matchesRegion && matchesDifficulty && matchesDuration && matchesSeason;
     });
-    
+
     setFilteredTreks(filtered);
   }, [searchTerm, filters]);
 
@@ -72,17 +72,30 @@ const TreksList = () => {
 
   return (
     <div className="min-h-screen bg-neutral-50 pt-24">
-      <div className="bg-primary text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
+            backgroundAttachment: 'fixed',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/80 to-neutral-900/40"></div>
+        </div>
+
+        {/* Text Overlay */}
+        <div className="relative z-10 px-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Explore Our Trekking Routes
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl">
-            Discover the beauty of Nepal through our carefully curated trekking experiences, 
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+            Discover the beauty of Nepal through our carefully curated trekking experiences,
             from the iconic Everest Base Camp to the scenic Annapurna Circuit.
           </p>
         </div>
-      </div>
+      </section>
+
 
       <div className="container mx-auto px-4 py-8">
         {/* Search and Filter Section */}
@@ -104,7 +117,7 @@ const TreksList = () => {
 
             {/* Filter Toggle Button (Mobile) */}
             <div className="md:hidden">
-              <button 
+              <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
                 className="w-full flex items-center justify-center gap-2 py-2 border border-primary text-primary rounded-lg"
               >
@@ -154,16 +167,16 @@ const TreksList = () => {
               </select>
 
               {/* Clear Filters Button */}
-              {(filters.region !== 'all' || filters.difficulty !== 'all' || 
+              {(filters.region !== 'all' || filters.difficulty !== 'all' ||
                 filters.duration !== 'all' || filters.season !== 'all' || searchTerm) && (
-                <button
-                  onClick={clearFilters}
-                  className="flex items-center text-neutral-500 hover:text-primary"
-                >
-                  <X size={16} className="mr-1" />
-                  Clear
-                </button>
-              )}
+                  <button
+                    onClick={clearFilters}
+                    className="flex items-center text-neutral-500 hover:text-primary"
+                  >
+                    <X size={16} className="mr-1" />
+                    Clear
+                  </button>
+                )}
             </div>
           </div>
 
@@ -270,9 +283,9 @@ const TreksList = () => {
                   className="trek-card bg-white rounded-lg overflow-hidden shadow-md"
                 >
                   <div className="relative h-52 overflow-hidden">
-                    <img 
-                      src={trek.images[0]} 
-                      alt={trek.name} 
+                    <img
+                      src={trek.images[0]}
+                      alt={trek.name}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -285,13 +298,13 @@ const TreksList = () => {
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="p-5">
                     <h3 className="text-xl font-semibold mb-2">{trek.name}</h3>
                     <p className="text-neutral-600 text-sm mb-3 line-clamp-2">
                       {trek.shortDescription}
                     </p>
-                    
+
                     <div className="flex flex-col space-y-2 mb-4">
                       <div className="flex items-center text-neutral-600">
                         <Clock size={16} className="mr-2" />
@@ -306,7 +319,7 @@ const TreksList = () => {
                         <span>Best season: {trek.bestSeason}</span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between mt-4">
                       <div className="text-accent font-semibold">
                         From ${trek.basePrice} USD

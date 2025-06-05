@@ -48,7 +48,7 @@ const AboutNepal = () => {
             className="rounded-lg overflow-hidden shadow-lg"
           >
             <img
-              src="/images/naturepic.jpg"
+              src="./images/naturepic.jpg"
               alt="Himalayan Mountains"
               className="w-full h-auto object-cover"
             />
@@ -62,7 +62,7 @@ const AboutNepal = () => {
             className="rounded-lg overflow-hidden shadow-lg md:order-3"
           >
             <img
-              src="/images/culture.jpg"
+              src="./images/culture.jpg"
               alt="Nepalese Temple"
               className="w-full h-auto object-cover"
             />

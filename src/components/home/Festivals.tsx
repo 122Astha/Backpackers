@@ -8,19 +8,19 @@ const festivals = [
     name: "Dashain",
     description: "Nepal's biggest festival celebrating the victory of good over evil with traditional rituals and family gatherings.",
     date: "September-October",
-    image: "/images/Dashain-Festival.webp"
+    image: "./images/Dashain-Festival.webp"
   },
   {
     name: "Tihar",
     description: "The festival of lights honoring Laxmi, the goddess of wealth, with beautiful light displays and rangoli art.",
     date: "October-November",
-    image: "/images/tihar-social.webp"
+    image: "./images/tihar-social.webp"
   },
   {
     name: "Holi",
     description: "The colorful spring festival where people celebrate with vibrant colors, music, and dance.",
     date: "March",
-    image: "/images/holi-in-nepal.webp"
+    image: "./images/holi-in-nepal.webp"
   }
 ];
 

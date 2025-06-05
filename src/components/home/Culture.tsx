@@ -40,7 +40,7 @@ const Culture = () => {
               Savor authentic Nepali dishes like Dal Bhat, momos, and traditional street food. Experience the unique blend of flavors influenced by diverse ethnic communities.
             </p>
             <img
-              src="/images/Nepali-Food.webp"
+              src="./images/Nepali-Food.webp"
               alt="Nepali Cuisine"
               className="w-full h-48 object-cover rounded-lg"
             />
@@ -61,7 +61,7 @@ const Culture = () => {
               Witness traditional performances featuring ancient instruments and cultural dances that tell stories of Nepal's rich heritage and mythology.
             </p>
             <img
-              src="/images/Kumari-Dance.jpg"
+              src="./images/Kumari-Dance.jpg"
               alt="Traditional Dance"
               className="w-full h-48 object-cover rounded-lg"
             />
@@ -82,7 +82,7 @@ const Culture = () => {
               Explore UNESCO World Heritage sites, ancient temples, and traditional Newari architecture that showcase Nepal's architectural mastery.
             </p>
             <img
-              src="/images/Nepal-Bhaktapur.jpg"
+              src="./images/Nepal-Bhaktapur.jpg"
               alt="Temple Architecture"
               className="w-full h-48 object-cover rounded-lg"
             />
