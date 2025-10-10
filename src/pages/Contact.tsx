@@ -316,9 +316,8 @@ const Contact = () => {
                   <div className="flex justify-end">
                     <Button
                       type="submit"
-                      variant="primary"
                       disabled={isLoading}
-                      className="px-8"
+                      className="bg-blue-500 px-8"
                     >
                       {isLoading ? (
                         <span className="flex items-center">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Clock, MapPin, Calendar, Mountain as Mountains, Users, Heart, Star, ChevronRight, ArrowLeft, PlusCircle, MinusCircle, DollarSign } from 'lucide-react';
 import Button from '../components/common/Button';
 import { treks, Trek } from '../data/treks';
-import { guides, Guide } from '../data/guides';
+// import { guides, Guide } from '../data/guides';
 
 const TrekDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -66,7 +66,7 @@ const TrekDetail = () => {
   }
   
   // Find available guides for this trek
-  const trekGuides = guides.filter(guide => trek.guides.includes(guide.id));
+  // const trekGuides = guides.filter(guide => trek.guides.includes(guide.id));
 
   return (
     <div className="min-h-screen bg-neutral-50 pt-24">
@@ -114,7 +114,7 @@ const TrekDetail = () => {
       </div>
       
       {/* Image Gallery Thumbnails */}
-      <div className="bg-white shadow-md">
+      {/* <div className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-4">
           <div className="flex space-x-2 overflow-x-auto pb-2">
             {trek.images.map((image, index) => (
@@ -134,7 +134,7 @@ const TrekDetail = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       
       {/* Content Section */}
       <div className="container mx-auto px-4 py-8 md:py-12">
@@ -144,7 +144,7 @@ const TrekDetail = () => {
             {/* Tabs Navigation */}
             <div className="mb-6 border-b border-neutral-200">
               <div className="flex space-x-1 md:space-x-8">
-                {['overview', 'itinerary', 'details', 'guides'].map((tab) => (
+                {['overview', 'itinerary', 'details'].map((tab) => (
                   <button
                     key={tab}
                     className={`py-3 px-2 md:px-4 text-sm md:text-base font-medium border-b-2 transition-colors ${
@@ -200,7 +200,7 @@ const TrekDetail = () => {
                 <div>
                   <h2 className="text-2xl font-semibold mb-6">Daily Itinerary</h2>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-6 h-[600px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-neutral-300 scrollbar-track-neutral-100">
                     {trek.itinerary.map((day, index) => (
                       <div 
                         key={index}
@@ -335,7 +335,7 @@ const TrekDetail = () => {
               )}
               
               {/* Guides Tab */}
-              {activeTab === 'guides' && (
+              {/* {activeTab === 'guides' && (
                 <div>
                   <h2 className="text-2xl font-semibold mb-6">Available Guides</h2>
                   
@@ -420,14 +420,14 @@ const TrekDetail = () => {
                     ))}
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
           
           {/* Sidebar */}
           <div className="lg:w-1/3">
             {/* Price Calculator Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 mb-6 sticky top-24">
+            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
               <h3 className="text-xl font-semibold mb-4">Calculate Your Trek</h3>
               
               <div className="space-y-5">
@@ -510,7 +510,7 @@ const TrekDetail = () => {
                 
                 {/* Book Now Button */}
                 <Link to="/contact" className="block mt-4">
-                  <Button variant="primary" fullWidth>
+                  <Button className="bg-blue-500" fullWidth>
                     <DollarSign size={18} className="mr-1" />
                     Book This Trek
                   </Button>
