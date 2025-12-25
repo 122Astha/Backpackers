@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/Backpackers">
+    <Router basename="/">
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />

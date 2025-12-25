@@ -69,17 +69,17 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin size={20} className="text-primary-light mt-1 mr-2" />
                 <span className="text-neutral-300">
-                  Thamel, Kathmandu, Nepal
+                 Butwal-06, Traffic chowk, Nepal
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="text-primary-light mr-2" />
-                <span className="text-neutral-300">+977 1234 567890</span>
+                <span className="text-neutral-300">071-419154, +977 9847087647</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="text-primary-light mr-2" />
-                <a href="mailto:info@backpacker.com" className="text-neutral-300 hover:text-primary-light transition-colors">
-                  info@backpacker.com
+                <a href="mailto:hbntrek@gmail.com" className="text-neutral-300 hover:text-primary-light transition-colors">
+                  hbntrek@gmail.com
                 </a>
               </li>
             </ul>

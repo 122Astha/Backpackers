@@ -1,54 +1,58 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
-import Button from '../components/common/Button';
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react"
+import Button from "../components/common/Button"
 
 const Contact = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-    preferredTrek: '',
-    trekDate: '',
-  });
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    preferredTrek: "",
+    trekDate: ""
+  })
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target
     setFormState({
       ...formState,
-      [name]: value,
-    });
-  };
+      [name]: value
+    })
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
 
     // Simulate form submission
     setTimeout(() => {
-      setIsLoading(false);
-      setIsSubmitted(true);
+      setIsLoading(false)
+      setIsSubmitted(true)
       setFormState({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        preferredTrek: '',
-        trekDate: '',
-      });
-    }, 1500);
-  };
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        preferredTrek: "",
+        trekDate: ""
+      })
+    }, 1500)
+  }
 
   return (
     <div ref={ref} className="min-h-screen bg-neutral-50 pt-24">
@@ -56,8 +60,7 @@ const Contact = () => {
       <div
         className="relative w-full bg-cover bg-center bg-no-repeat py-24 md:py-32"
         style={{
-          backgroundImage:
-            "url('./images/trekwalk.jpg')", // update this path to match your image
+          backgroundImage: "url('./images/trekwalk.jpg')" // update this path to match your image
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -78,12 +81,12 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto"
           >
-            Have questions about our trekking routes or want to book a custom adventure?
-            Get in touch with our team of experienced trekking experts.
+            Have questions about our trekking routes or want to book a custom
+            adventure? Get in touch with our team of experienced trekking
+            experts.
           </motion.p>
         </div>
       </div>
-
 
       {/* Contact Section */}
       <div className="container mx-auto px-4 py-12 md:py-16">
@@ -106,7 +109,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-lg">Our Location</h3>
                     <p className="text-neutral-600">
-                      Thamel, Kathmandu, Nepal
+                      Butwal-06, Traffic chowk, Nepal
                     </p>
                   </div>
                 </div>
@@ -117,12 +120,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-lg">Phone Number</h3>
-                    <p className="text-neutral-600">
-                      +977 1234 567890
-                    </p>
-                    <p className="text-neutral-600">
-                      +977 9876 543210
-                    </p>
+                    <p className="text-neutral-600">071-419154</p>
+                    <p className="text-neutral-600">+977 9847087647</p>
                   </div>
                 </div>
 
@@ -132,12 +131,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-lg">Email Address</h3>
-                    <p className="text-neutral-600">
-                      info@backpacker.com
-                    </p>
-                    <p className="text-neutral-600">
-                      bookings@backpacker.com
-                    </p>
+                    <p className="text-neutral-600">hbntrek@gmail.com</p>
                   </div>
                 </div>
 
@@ -150,16 +144,16 @@ const Contact = () => {
                     <p className="text-neutral-600">
                       Monday - Friday: 9am - 6pm
                     </p>
-                    <p className="text-neutral-600">
+                    {/* <p className="text-neutral-600">
                       Saturday: 10am - 4pm
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
 
               <div className="mt-8">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2584281333204!2d85.30737781438809!3d27.715395382786617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcb77fd4f7%3A0x58099b8d47e8e8e1!2sThamel%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2sus!4v1662042034707!5m2!1sen!2sus"
+                  src="https://www.google.com/maps?q=Butwal-06%2C%20Traffic%20Chowk%2C%20Nepal&output=embed"
                   width="100%"
                   height="200"
                   style={{ border: 0 }}
@@ -167,7 +161,7 @@ const Contact = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
-                  title="Backpacker Office Location"
+                  title="Office Location - Butwal Traffic Chowk"
                 ></iframe>
               </div>
             </motion.div>
@@ -185,10 +179,16 @@ const Contact = () => {
 
               {isSubmitted ? (
                 <div className="bg-green-50 text-green-700 p-6 rounded-lg border border-green-200 text-center">
-                  <CheckCircle size={48} className="mx-auto mb-4 text-green-500" />
-                  <h3 className="text-xl font-semibold mb-2">Message Sent Successfully!</h3>
+                  <CheckCircle
+                    size={48}
+                    className="mx-auto mb-4 text-green-500"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">
+                    Message Sent Successfully!
+                  </h3>
                   <p className="mb-4">
-                    Thank you for contacting us. Our team will get back to you within 24 hours.
+                    Thank you for contacting us. Our team will get back to you
+                    within 24 hours.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
@@ -201,7 +201,10 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Full Name*
                       </label>
                       <input
@@ -216,7 +219,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Email Address*
                       </label>
                       <input
@@ -231,7 +237,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -245,7 +254,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Subject*
                       </label>
                       <input
@@ -260,7 +272,10 @@ const Contact = () => {
                     </div>
 
                     <div className="md:col-span-2">
-                      <label htmlFor="preferredTrek" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="preferredTrek"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Interested Trek
                       </label>
                       <select
@@ -271,9 +286,15 @@ const Contact = () => {
                         className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                       >
                         <option value="">Select a trek (optional)</option>
-                        <option value="everest-base-camp">Everest Base Camp</option>
-                        <option value="annapurna-base-camp">Annapurna Base Camp</option>
-                        <option value="annapurna-circuit">Annapurna Circuit</option>
+                        <option value="everest-base-camp">
+                          Everest Base Camp
+                        </option>
+                        <option value="annapurna-base-camp">
+                          Annapurna Base Camp
+                        </option>
+                        <option value="annapurna-circuit">
+                          Annapurna Circuit
+                        </option>
                         <option value="gokyo-lakes">Gokyo Lakes</option>
                         <option value="upper-mustang">Upper Mustang</option>
                         <option value="manaslu-circuit">Manaslu Circuit</option>
@@ -283,7 +304,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="trekDate" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="trekDate"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Preferred Trek Date
                       </label>
                       <input
@@ -293,12 +317,15 @@ const Contact = () => {
                         value={formState.trekDate}
                         onChange={handleInputChange}
                         className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                        min={new Date().toISOString().split('T')[0]}
+                        min={new Date().toISOString().split("T")[0]}
                       />
                     </div>
 
                     <div className="md:col-span-2">
-                      <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-neutral-700 mb-1"
+                      >
                         Your Message*
                       </label>
                       <textarea
@@ -321,9 +348,25 @@ const Contact = () => {
                     >
                       {isLoading ? (
                         <span className="flex items-center">
-                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white\" xmlns="http://www.w3.org/2000/svg\" fill="none\" viewBox="0 0 24 24">
-                            <circle className="opacity-25\" cx="12\" cy="12\" r="10\" stroke="currentColor\" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          <svg
+                            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white\"
+                            xmlns="http://www.w3.org/2000/svg\"
+                            fill="none\"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25\"
+                              cx="12\"
+                              cy="12\"
+                              r="10\"
+                              stroke="currentColor\"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
                           </svg>
                           Sending...
                         </span>
@@ -342,7 +385,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
