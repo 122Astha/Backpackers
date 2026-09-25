@@ -1,60 +1,56 @@
-import { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const showTransparent = isHome && !scrolled;
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${showTransparent ? 'bg-transparent py-4' : 'bg-white shadow-md py-2'
-        }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        showTransparent ? "bg-transparent py-4" : "bg-white shadow-md py-2"
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <MapPin
-              size={32}
-              className={`transition-colors duration-300 ${showTransparent ? 'text-white' : 'text-primary'
-                }`}
+            <img
+              src="/images/himalayan-backpacker-logo.svg"
+              alt="Himalayan Backpacker"
+              className="h-12 w-auto"
             />
-            <span
-              className={`ml-2 text-2xl font-bold transition-colors duration-300 ${showTransparent ? 'text-white' : 'text-primary'
-                }`}
-            >
-              Backpacker
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {['Home', 'Treks', 'Contact'].map((item) => (
+            {["Home", "Treks", "Contact"].map((item) => (
               <NavLink
                 key={item}
-                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                 className={({ isActive }) =>
-                  `text-lg font-medium transition-colors duration-300 ${showTransparent
-                    ? isActive
-                      ? 'text-white font-semibold'
-                      : 'text-white hover:text-neutral-200'
-                    : isActive
-                      ? 'text-primary'
-                      : 'text-neutral-700 hover:text-primary'
+                  `text-lg font-medium transition-colors duration-300 ${
+                    showTransparent
+                      ? isActive
+                        ? "text-white font-semibold"
+                        : "text-white hover:text-neutral-200"
+                      : isActive
+                        ? "text-primary"
+                        : "text-neutral-700 hover:text-primary"
                   }`
                 }
               >
@@ -72,12 +68,12 @@ const Header = () => {
             {isOpen ? (
               <X
                 size={28}
-                className={`${showTransparent ? 'text-white' : 'text-neutral-800'}`}
+                className={`${showTransparent ? "text-white" : "text-neutral-800"}`}
               />
             ) : (
               <Menu
                 size={28}
-                className={`${showTransparent ? 'text-white' : 'text-neutral-800'}`}
+                className={`${showTransparent ? "text-white" : "text-neutral-800"}`}
               />
             )}
           </button>
@@ -95,14 +91,15 @@ const Header = () => {
         >
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              {['Home', 'Treks', 'Contact'].map((item) => (
+              {["Home", "Treks", "Contact"].map((item) => (
                 <NavLink
                   key={item}
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                   className={({ isActive }) =>
-                    `text-lg font-medium p-2 rounded ${isActive
-                      ? 'bg-primary-light/10 text-primary'
-                      : 'text-neutral-700 hover:bg-neutral-100'
+                    `text-lg font-medium p-2 rounded ${
+                      isActive
+                        ? "bg-primary-light/10 text-primary"
+                        : "text-neutral-700 hover:bg-neutral-100"
                     }`
                   }
                   onClick={() => setIsOpen(false)}
